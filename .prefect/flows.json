@@ -1,0 +1,3 @@
+{
+  "main-flow": "workflow/pipeline.py:main_flow"
+}

@@ -1,0 +1,25 @@
+name: Deploy Prefect
+
+on:
+    workflow_dispatch:
+    push:
+      branches: [ 'main' ]
+      paths: 'prefect/**' 
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: 'Checkout GitHub Action'
+          uses: actions/checkout@main
+        
+        - name: 'Build and push image'
+          uses: azure/docker-login@v1
+          with:
+            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
+        - run: |
+            docker build ./prefect -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/prefect
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/prefect
