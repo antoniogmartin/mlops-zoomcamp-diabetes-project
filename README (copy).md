@@ -1,4 +1,4 @@
-# mlops-zoomcamp-diabetes-project
+# MLOps Zoomcap Project - Diabetes Prediction
 
 This is my final project for [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp) [2023 cohort](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/cohorts/2023).
 
